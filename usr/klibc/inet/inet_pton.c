@@ -38,7 +38,7 @@ int inet_pton(int af, const char *src, void *dst)
 
 			/* A double colon will increment colons by 2,
 			   dcolons by 1 */
-			for (p = dst; *p; p++) {
+			for (p = src; *p; p++) {
 				if (p[0] == ':') {
 					colons++;
 					if (p[1] == ':')
@@ -54,7 +54,7 @@ int inet_pton(int af, const char *src, void *dst)
 			memset(d, 0, sizeof(struct in6_addr));
 
 			i = 0;
-			for (p = dst; *p; p++) {
+			for (p = src; *p; p++) {
 				if (*p == ':') {
 					if (p[1] == ':') {
 						i += (8 - colons);
