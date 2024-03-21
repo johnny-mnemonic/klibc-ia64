@@ -43,7 +43,7 @@ int inet_pton(int af, const char *src, void *dst)
 					colons++;
 					if (p[1] == ':')
 						dcolons++;
-				} else if (!isxdigit(*p))
+				} else if (!isxdigit((unsigned char)*p))
 					return 0;	/* Invalid address */
 			}
 
