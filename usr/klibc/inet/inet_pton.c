@@ -32,7 +32,7 @@ int inet_pton(int af, const char *src, void *dst)
 	case AF_INET6:
 		{
 			struct in6_addr *d = (struct in6_addr *)dst;
-			int colons = 0, dcolons = 0;
+			int colons = 0, dcolons = 0, digits = 0;
 			int i;
 			const char *p;
 
@@ -43,7 +43,9 @@ int inet_pton(int af, const char *src, void *dst)
 					colons++;
 					if (p[1] == ':')
 						dcolons++;
-				} else if (!isxdigit((unsigned char)*p))
+					digits = 0;
+				} else if (!isxdigit((unsigned char)*p)
+					   || ++digits > 4)
 					return 0;	/* Invalid address */
 			}
 
