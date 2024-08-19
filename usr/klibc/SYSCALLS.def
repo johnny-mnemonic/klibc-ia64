@@ -18,10 +18,9 @@
  * Process-related syscalls
  */
 void _exit,exit::_exit(int);
-<?!ia64> pid_t clone::__clone(unsigned long, void *);
-<?ia64> pid_t clone::__clone2(unsigned long, void *, void *);
+<?> pid_t clone::__clone(unsigned long, void *);
 # if ! _KLIBC_NO_MMU
-<!sparc,sparc64,ia64,arm64,riscv64,loongarch64> pid_t fork();
+<!sparc,sparc64,arm64,riscv64,loongarch64> pid_t fork();
 <sparc,sparc64> pid_t fork@forkish();
 #endif
 #if _KLIBC_REAL_VFORK
@@ -44,8 +43,8 @@ pid_t getsid(pid_t);
 pid_t wait4(pid_t, int *, int, struct rusage *);
 int execve(const char *, char * const *, char * const *);
 <?> int nice(int);
-<alpha,ia64> int getpriority(int, int);
-<!alpha,ia64> int getpriority::__getpriority(int, int);
+<alpha> int getpriority(int, int);
+<!alpha> int getpriority::__getpriority(int, int);
 int setpriority(int, int, int);
 int getrusage(int, struct rusage *);
 int sched_setscheduler(pid_t, int, const struct sched_param *);
@@ -86,8 +85,8 @@ int capset(cap_user_header_t, cap_user_data_t);
  * Filesystem-related system calls
  */
 int mount(const char *, const char *, const char *, unsigned long, const void *);
-<!alpha,ia64> int umount2(const char *, int);
-<alpha,ia64> int umount::umount2(const char *, int);
+<!alpha> int umount2(const char *, int);
+<alpha> int umount::umount2(const char *, int);
 <?> int pivot_root(const char *, const char *);
 int sync();
 #ifdef __NR_statfs64
@@ -125,7 +124,7 @@ int fchmod(int, mode_t);
 <?> int mkdir(const char *, mode_t);
 <?> int mkdirat(int, const char *, mode_t);
 <?> int rmdir(const char *);
-<?!alpha,ia64,mips,mips64,sh,sparc,sparc64> int pipe(int *);
+<?!alpha,mips,mips64,sh,sparc,sparc64> int pipe(int *);
 int pipe2(int *, int);
 mode_t umask(mode_t);
 int chroot(const char *);
@@ -188,10 +187,9 @@ ssize_t sendfile64,sendfile::sendfile(int, int, off_t *, size_t, off_t);
 /*
  * Signal operations
  */
-<!sparc,sparc64,alpha,ia64> int rt_sigaction::__rt_sigaction(int, const struct sigaction *, struct sigaction *, size_t);
+<!sparc,sparc64,alpha> int rt_sigaction::__rt_sigaction(int, const struct sigaction *, struct sigaction *, size_t);
 <sparc,sparc64> int rt_sigaction::____rt_sigaction(int, const struct sigaction *, struct sigaction *, void *, size_t);
 <alpha> int rt_sigaction::____rt_sigaction(int, const struct sigaction *, struct sigaction *, size_t, void *);
-<ia64> int rt_sigaction::____rt_sigaction(int, const struct sigaction *, struct sigaction *, size_t);
 int rt_sigsuspend::__rt_sigsuspend(const sigset_t *, size_t);
 int rt_sigpending::__rt_sigpending(sigset_t *, size_t);
 int rt_sigprocmask::__rt_sigprocmask(int, const sigset_t *, sigset_t *, size_t);
