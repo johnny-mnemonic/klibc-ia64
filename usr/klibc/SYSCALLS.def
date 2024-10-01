@@ -19,10 +19,8 @@
  */
 void _exit,exit::_exit(int);
 <?> pid_t clone::__clone(unsigned long, void *);
-# if ! _KLIBC_NO_MMU
 <!sparc,sparc64,arm64,riscv64,loongarch64> pid_t fork();
 <sparc,sparc64> pid_t fork@forkish();
-#endif
 #if _KLIBC_REAL_VFORK
 /*
  * A lot of architectures need architecture-specific vfork
@@ -216,7 +214,7 @@ int settimeofday::__settimeofday(const void *, const struct timezone *);
 /*
  * Memory
  */
-<?> void * brk::__brk(void *);
+void * brk::__brk(void *);
 int munmap(void *, size_t);
 void * mremap(void *, size_t, size_t, unsigned long);
 int msync(const void *, size_t, int);

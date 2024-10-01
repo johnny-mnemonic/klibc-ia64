@@ -20,22 +20,6 @@
 
 
 /*
- * _KLIBC_NO_MMU:
- *
- *	Indicates this architecture doesn't have an MMU, and therefore
- *	does not have the sys_fork and sys_brk system calls.
- */
-/* Default to having an MMU if we can find the fork system call */
-#ifndef _KLIBC_NO_MMU
-# if defined(__NR_fork)
-#  define _KLIBC_NO_MMU 0
-# else
-#  define _KLIBC_NO_MMU 1
-# endif
-#endif
-
-
-/*
  * _KLIBC_REAL_VFORK:
  *
  *	Indicates that this architecture has a real vfork() system call.

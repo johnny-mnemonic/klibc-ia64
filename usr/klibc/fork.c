@@ -11,11 +11,11 @@
 #include <sched.h>
 #include <klibc/sysconfig.h>
 
-#if !_KLIBC_NO_MMU && !defined(__NR_fork)
+#ifndef __NR_fork
 
 pid_t fork(void)
 {
 	return __clone(SIGCHLD, 0);
 }
 
-#endif				/* __NR_fork */
+#endif
