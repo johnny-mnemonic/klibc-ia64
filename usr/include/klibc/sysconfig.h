@@ -188,17 +188,6 @@
 
 
 /*
- * _KLIBC_SYS_SOCKETCALL
- *
- *	This architecture (e.g. SPARC) advertises socket-related
- *	system calls, which are not actually implemented.  Use
- *	socketcalls unconditionally instead.
- */
-#ifndef _KLIBC_SYS_SOCKETCALL
-# define _KLIBC_SYS_SOCKETCALL 0
-#endif
-
-/*
  * _KLIBC_ARM_USE_BX
  *
  *	This arm architecture supports bx instruction.

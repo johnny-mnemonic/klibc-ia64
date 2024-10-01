@@ -263,6 +263,4 @@ long kexec_load(void *, unsigned long, struct kexec_segment *, unsigned long);
  * system calls.
  */
 <?!i386> long socketcall::__socketcall(int, const unsigned long *);
-#if ! _KLIBC_SYS_SOCKETCALL
 #include "SOCKETCALLS.def"
-#endif
