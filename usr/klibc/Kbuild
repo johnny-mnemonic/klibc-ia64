@@ -7,8 +7,6 @@ export klibc-build := y
 
 # Generate syscall stubs
 klib-y += syscalls/
-# Generate socket calls stubs
-klib-y += socketcalls/
 # zlib, if configured
 klib-$(CONFIG_KLIBC_ZLIB) += zlib/
 # arch specific .o files

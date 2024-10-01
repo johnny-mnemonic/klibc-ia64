@@ -259,8 +259,21 @@ long kexec_load(void *, unsigned long, struct kexec_segment *, unsigned long);
 <i386> int vm86(struct vm86_struct *);
 
 /*
- * Most architectures have the socket interfaces using regular
- * system calls.
+ * Socket interfaces.
  */
-<?!i386> long socketcall::__socketcall(int, const unsigned long *);
-#include "SOCKETCALLS.def"
+int socket(int, int, int);
+int bind(int, const struct sockaddr *, int);
+int connect(int, const struct sockaddr *, socklen_t);
+int listen(int, int);
+<?> int accept(int, struct sockaddr *, socklen_t *);
+int accept4(int, struct sockaddr *, socklen_t *, int);
+int getsockname(int, struct sockaddr *, socklen_t *);
+int getpeername(int, struct sockaddr *, socklen_t *);
+int socketpair(int, int, int, int *);
+int sendto(int, const void *, size_t, int, const struct sockaddr *, socklen_t);
+int recvfrom(int, void *, size_t, unsigned int, struct sockaddr *, socklen_t *);
+int shutdown(int, int);
+int setsockopt(int, int, int, const void *, socklen_t);
+int getsockopt(int, int, int, void *, socklen_t *);
+int sendmsg(int, const struct msghdr *, unsigned int);
+int recvmsg(int, struct msghdr *, unsigned int);
