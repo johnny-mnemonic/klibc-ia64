@@ -1,8 +1,8 @@
 /*
  * fork.c
  *
- * This is normally just a syscall stub, but at least one system
- * doesn't have sys_fork, only sys_clone...
+ * This is normally just a syscall stub, but new architectures only
+ * implement clone().
  */
 
 #include <sys/syscall.h>

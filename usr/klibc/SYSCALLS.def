@@ -18,9 +18,17 @@
  * Process-related syscalls
  */
 void _exit,exit::_exit(int);
-<?> pid_t clone::__clone(unsigned long, void *);
-<!sparc,sparc64,arm64,riscv64,loongarch64> pid_t fork();
+#ifdef __NR_fork
+<!sparc,sparc64> pid_t fork();
 <sparc,sparc64> pid_t fork@forkish();
+#else
+/*
+ * The clone() parameter order varies between architectures.  However,
+ * the first 2 are always clone_flags and newsp, except on s390/s390x
+ * where we have fork() and do not use clone().
+ */
+pid_t clone::__clone(unsigned long, void *);
+#endif
 #if _KLIBC_REAL_VFORK
 /*
  * A lot of architectures need architecture-specific vfork
