@@ -64,6 +64,7 @@ klib-y += vsnprintf.o snprintf.o vsprintf.o sprintf.o \
 	  fstat.o fstatat.o lstat.o stat.o \
 	  lchown.o link.o rmdir.o unlink.o mkdir.o \
 	  readlink.o realpath.o select.o symlink.o pipe.o \
+	  inotify_init.o \
 	  ctype/isalnum.o ctype/isalpha.o ctype/isascii.o \
 	  ctype/isblank.o ctype/iscntrl.o ctype/isdigit.o \
 	  ctype/isgraph.o ctype/islower.o ctype/isprint.o \

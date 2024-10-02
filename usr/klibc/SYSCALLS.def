@@ -148,6 +148,7 @@ int getcwd::__getcwd(char *, size_t);
 <32> int utimensat_time64::utimensat(int, const char *, const struct timespec *, int);
 <64> int utimensat(int, const char *, const struct timespec *, int);
 <?> int inotify_init();
+int inotify_init1(int);
 int inotify_add_watch(int, const char *, __u32);
 int inotify_rm_watch(int, __u32);
 
