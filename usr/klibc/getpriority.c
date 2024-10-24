@@ -10,7 +10,7 @@
 #include <sys/resource.h>
 #include <sys/syscall.h>
 
-#if !defined(__alpha__)
+#if !defined(__alpha__) && !defined(__ia64__)
 
 extern int __getpriority(int, int);
 
