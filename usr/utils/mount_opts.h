@@ -2,7 +2,7 @@
 #define UTILS_MOUNT_OPTS_H
 
 struct mount_opts {
-	const char str[8];
+	const char str[9];
 	unsigned long rwmask;
 	unsigned long rwset;
 	unsigned long rwnoset;
