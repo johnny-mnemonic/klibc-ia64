@@ -31,17 +31,17 @@ typedef uint64_t	uintmax_t;
 #define INT8_MIN	(-128)
 #define INT16_MIN	(-32768)
 #define INT32_MIN	(-2147483647-1)
-#define INT64_MIN	(__INT64_C(-9223372036854775807)-1)
+#define INT64_MIN	(__KLIBC_INT64_C(-9223372036854775807)-1)
 
 #define INT8_MAX	(127)
 #define INT16_MAX	(32767)
 #define INT32_MAX	(2147483647)
-#define INT64_MAX	(__INT64_C(9223372036854775807))
+#define INT64_MAX	(__KLIBC_INT64_C(9223372036854775807))
 
 #define UINT8_MAX	(255U)
 #define UINT16_MAX	(65535U)
 #define UINT32_MAX	(4294967295U)
-#define UINT64_MAX	(__UINT64_C(18446744073709551615))
+#define UINT64_MAX	(__KLIBC_UINT64_C(18446744073709551615))
 
 #define INT_LEAST8_MIN	INT8_MIN
 #define INT_LEAST16_MIN	INT16_MIN
@@ -80,12 +80,12 @@ typedef uint64_t	uintmax_t;
 #define INT8_C(c)	c
 #define INT16_C(c)	c
 #define INT32_C(c)	c
-#define INT64_C(c)	__INT64_C(c)
+#define INT64_C(c)	__KLIBC_INT64_C(c)
 
 #define UINT8_C(c)	c ## U
 #define UINT16_C(c)	c ## U
 #define UINT32_C(c)	c ## U
-#define UINT64_C(c)	__UINT64_C(c)
+#define UINT64_C(c)	__KLIBC_UINT64_C(c)
 
 #define INT_LEAST8_C(c)	 INT8_C(c)
 #define INT_LEAST16_C(c) INT16_C(c)
