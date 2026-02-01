@@ -91,9 +91,7 @@ quiet_cmd_syscalls = GEN     $@
 
 $(obj)/syscalls.mk: $(srctree)/$(KLIBCSRC)/syscalls.pl $(obj)/SYSCALLS.i   \
                     $(srctree)/$(KLIBCSRC)/arch/$(KLIBCARCHDIR)/sysstub.ph \
-                    $(call objectify, $(syscall-objs:.o=.S))               \
-                    $(src)/syscommon.h $(obj)/syscalls.nrs                 \
-                    $(obj)/typesize.bin FORCE
+                    $(obj)/syscalls.nrs $(obj)/typesize.bin FORCE
 	$(call if_changed,syscalls)
 
 PHONY += FORCE
