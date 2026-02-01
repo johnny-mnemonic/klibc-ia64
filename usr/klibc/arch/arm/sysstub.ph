@@ -33,7 +33,7 @@ sub make_sysstub($$$$$@) {
     print  OUT "#else /* __ARM_EABI__ */\n";
 
     # ARM EABI version
-    print  out "	.balign	4\n";
+    print  OUT "	.balign	4\n";
     print  OUT "${fname}:\n";
     print  OUT "	stmfd	sp!,{r4,r5,r7,lr}\n";
     print  OUT "	bl	__syscall_common\n";
